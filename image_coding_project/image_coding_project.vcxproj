@@ -92,6 +92,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,14 +149,22 @@
   <ItemGroup>
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="GUI_frame_decode_A.cpp" />
+    <ClCompile Include="GUI_frame_decode_AB.cpp" />
+    <ClCompile Include="GUI_frame_decode_B.cpp" />
     <ClCompile Include="GUI_frame_encode_A.cpp" />
+    <ClCompile Include="GUI_frame_encode_AB.cpp" />
+    <ClCompile Include="GUI_frame_encode_B.cpp" />
     <ClCompile Include="GUI_frame_main.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h" />
     <ClInclude Include="GUI_frame_decode_A.h" />
+    <ClInclude Include="GUI_frame_decode_AB.h" />
+    <ClInclude Include="GUI_frame_decode_B.h" />
     <ClInclude Include="GUI_frame_encode_A.h" />
+    <ClInclude Include="GUI_frame_encode_AB.h" />
+    <ClInclude Include="GUI_frame_encode_B.h" />
     <ClInclude Include="GUI_frame_main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
