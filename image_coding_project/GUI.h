@@ -84,6 +84,7 @@ class frame_encode_A : public wxFrame
 		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -116,6 +117,7 @@ class frame_decode_A : public wxFrame
 		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -123,6 +125,150 @@ class frame_decode_A : public wxFrame
 		frame_decode_A( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Dekoduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_decode_A();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class frame_encode_B
+///////////////////////////////////////////////////////////////////////////////
+class frame_encode_B : public wxFrame
+{
+	private:
+
+	protected:
+		wxButton* button_load_input;
+		wxPanel* panel_input_image;
+		wxButton* button_encode;
+		wxGauge* gauge_progress;
+		wxStaticText* text_info;
+		wxButton* button_save_output1;
+		wxPanel* panel_output_image1;
+		wxButton* button_save_output2;
+		wxPanel* panel_output_image2;
+		wxButton* button_return;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		frame_encode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Koduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~frame_encode_B();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class frame_decode_B
+///////////////////////////////////////////////////////////////////////////////
+class frame_decode_B : public wxFrame
+{
+	private:
+
+	protected:
+		wxButton* button_load_input1;
+		wxPanel* panel_input_image1;
+		wxButton* button_load_input2;
+		wxPanel* panel_input_image2;
+		wxButton* button_decode;
+		wxGauge* gauge_progress;
+		wxStaticText* text_info;
+		wxButton* button_save_output;
+		wxPanel* panel_output_image;
+		wxButton* button_return;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void button_load_input1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_load_input2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		frame_decode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Dekoduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~frame_decode_B();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class frame_encode_AB
+///////////////////////////////////////////////////////////////////////////////
+class frame_encode_AB : public wxFrame
+{
+	private:
+
+	protected:
+		wxButton* button_load_input;
+		wxPanel* panel_input_image;
+		wxButton* button_encode;
+		wxGauge* gauge_progress;
+		wxStaticText* text_info;
+		wxButton* button_save_output1;
+		wxPanel* panel_output_image1;
+		wxButton* button_save_output2;
+		wxPanel* panel_output_image2;
+		wxButton* button_return;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		frame_encode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Koduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~frame_encode_AB();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class frame_decode_AB
+///////////////////////////////////////////////////////////////////////////////
+class frame_decode_AB : public wxFrame
+{
+	private:
+
+	protected:
+		wxButton* button_load_input1;
+		wxPanel* panel_input_image1;
+		wxButton* button_load_input2;
+		wxPanel* panel_input_image2;
+		wxButton* button_decode;
+		wxGauge* gauge_progress;
+		wxStaticText* text_info;
+		wxButton* button_save_output;
+		wxPanel* panel_output_image;
+		wxButton* button_return;
+
+		// Virtual event handlers, overide them in your derived class
+		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void button_load_input1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_load_input2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		frame_decode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Dekoduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~frame_decode_AB();
 
 };
 
