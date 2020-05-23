@@ -1,5 +1,4 @@
 #include "GUI_frame_main.h"
-
 GUI_frame_main::GUI_frame_main( wxWindow* parent )
 :
 frame_main( parent )
