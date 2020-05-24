@@ -1,5 +1,6 @@
 #include "GUI_frame_encode_A.h"
 
+// konstruktor
 GUI_frame_encode_A::GUI_frame_encode_A( wxWindow* parent )
 :
 frame_encode_A( parent )
@@ -7,36 +8,67 @@ frame_encode_A( parent )
 
 }
 
+// reakcja okna na zmiane UI
 void GUI_frame_encode_A::frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event )
 {
-// TODO: Implement frame_encode_A_OnUpdateUI
+	// rysowanie wczytanego obrazka, jezeli istnieje
 	if(inputImage.IsOk()) Repaint(inputImage,panel_input_image);
+	// rysowanie zakodowanego obrazka, jezeli istnieje
 	if(outputImage.IsOk()) Repaint(outputImage, panel_output_image);
 }
 
+// wczytywanie obrazka do zakodowania
 void GUI_frame_encode_A::button_load_input_OnButtonClick( wxCommandEvent& event )
 {
-	LoadSaveManager loadFile(this);
-	loadFile.Load();
-	inputImage = loadFile.getLoadedImage();
-	Repaint(inputImage, panel_input_image);
+	LoadSaveManager loadFile(this); // powiazanie menad¿era wczytywania z oknem
+	loadFile.Load();	// wczytanie obrazka
+	if (loadFile.getLoadedImage().IsOk())	// jezeli wczytany obrazek istnieje
+	{
+		inputImage = loadFile.getLoadedImage();	// przekazanie wczytanego obrazka
+		Repaint(inputImage, panel_input_image);	// rysowanie wczytanego obrazka
+		outputImage = wxNullImage;	// reset zakodowanego obrazka
+		panel_output_image->ClearBackground();	// czyszczenie panelu z zakodowanym obrazkiem
+		setGaugeValue(0);	// reset gauge
+	}
 }
 
+// kodowanie wczytanego obrazka
 void GUI_frame_encode_A::button_encode_OnButtonClick( wxCommandEvent& event )
 {
-	SteganoEncode meCoding(inputImage);
-	meCoding.Stegano();
-	outputImage = meCoding.getEncodedImage();
-	Repaint(outputImage, panel_output_image);
+	if (inputImage.IsOk())	// jezeli wczytany obrazek istnieje
+	{
+		// przygotowanie menad¿era kodowania i obrazka do zakodowania
+		Stegano meCoding(inputImage, gauge_progress);
+		outputImage = inputImage.Copy();
+		meCoding.SteganoCode(outputImage);	// kodowanie
+		Repaint(outputImage, panel_output_image);	// rysowanie zakodowanego obrazka
+	}
 }
 
+// zapis zakodowanego obrazka do pliku
 void GUI_frame_encode_A::button_save_output_OnButtonClick( wxCommandEvent& event )
 {
-	LoadSaveManager saveFile(this);
-	saveFile.Save(outputImage);
+	if (outputImage.IsOk())	// jezeli zakodowany obrazek istnieje
+	{
+		LoadSaveManager saveFile(this);	// powiazanie menad¿era zapisu z oknem
+		saveFile.Save(outputImage);	// zapis
+	}
 }
 
+// powrot do menu
 void GUI_frame_encode_A::button_return_OnButtonClick( wxCommandEvent& event )
 {
 // TODO: Implement button_return_OnButtonClick
+}
+
+// metoda obslugujaca gauge - ustawianie zakresu
+void GUI_frame_encode_A::setGaugeRange(int myRange)
+{
+	gauge_progress->SetRange(myRange);
+}
+
+// metoda obslugujaca gauge - ustawianie wartosci
+void GUI_frame_encode_A::setGaugeValue(int myValue)
+{
+	gauge_progress->SetValue(myValue);
 }
