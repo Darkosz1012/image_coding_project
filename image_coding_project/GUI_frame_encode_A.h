@@ -33,6 +33,8 @@ class GUI_frame_encode_A : public frame_encode_A
 		// metody obslugujace gauge - zakres i wartosc
 		void setGaugeRange(int);
 		void setGaugeValue(int);
+
+
 };
 
 #endif // __GUI_frame_encode_A__

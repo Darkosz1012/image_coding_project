@@ -16,7 +16,7 @@
         <property name="help_provider">none</property>
         <property name="indent_with_spaces"></property>
         <property name="internationalize">0</property>
-        <property name="name">GUI</property>
+        <property name="name">GUI_</property>
         <property name="namespace"></property>
         <property name="path">.</property>
         <property name="precompiled_header"></property>
@@ -45,7 +45,7 @@
             <property name="minimum_size"></property>
             <property name="name">frame_main</property>
             <property name="pos"></property>
-            <property name="size">381,365</property>
+            <property name="size">436,475</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">Menu główne</property>
@@ -1050,7 +1050,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>
@@ -1061,7 +1061,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">-1,-1</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -1319,7 +1319,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnUpdateUI">frame_encode_A_OnUpdateUI</event>
+            <event name="OnUpdateUI">frame_decode_A_OnUpdateUI</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
@@ -1554,7 +1554,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
-                                        <event name="OnButtonClick">button_encode_OnButtonClick</event>
+                                        <event name="OnButtonClick">button_decode_OnButtonClick</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="1">
@@ -1660,7 +1660,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>
@@ -1929,7 +1929,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnUpdateUI">frame_encode_A_OnUpdateUI</event>
+            <event name="OnUpdateUI">frame_encode_B_OnUpdateUI</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
@@ -2270,7 +2270,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>
@@ -2680,7 +2680,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnUpdateUI">frame_encode_A_OnUpdateUI</event>
+            <event name="OnUpdateUI">frame_decode_B_OnUpdateUI</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
@@ -3056,7 +3056,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
-                                        <event name="OnButtonClick">button_encode_OnButtonClick</event>
+                                        <event name="OnButtonClick">button_decode_OnButtonClick</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="1">
@@ -3162,7 +3162,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>
@@ -3431,7 +3431,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnUpdateUI">frame_encode_A_OnUpdateUI</event>
+            <event name="OnUpdateUI">frame_encode_AB_OnUpdateUI</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
@@ -3772,7 +3772,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>
@@ -4182,7 +4182,7 @@
             <property name="window_name"></property>
             <property name="window_style">wxTAB_TRAVERSAL</property>
             <property name="xrc_skip_sizer">1</property>
-            <event name="OnUpdateUI">frame_encode_A_OnUpdateUI</event>
+            <event name="OnUpdateUI">frame_decode_AB_OnUpdateUI</event>
             <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
@@ -4558,7 +4558,7 @@
                                         <property name="window_extra_style"></property>
                                         <property name="window_name"></property>
                                         <property name="window_style"></property>
-                                        <event name="OnButtonClick">button_encode_OnButtonClick</event>
+                                        <event name="OnButtonClick">button_decode_OnButtonClick</event>
                                     </object>
                                 </object>
                                 <object class="sizeritem" expanded="1">
@@ -4664,7 +4664,7 @@
                                         <property name="maximum_size"></property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
-                                        <property name="minimum_size"></property>
+                                        <property name="minimum_size">200,200</property>
                                         <property name="moveable">1</property>
                                         <property name="name">text_info</property>
                                         <property name="pane_border">1</property>

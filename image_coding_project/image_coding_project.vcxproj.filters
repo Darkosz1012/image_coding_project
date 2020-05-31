@@ -51,6 +51,12 @@
     <ClCompile Include="Stegano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h">
@@ -84,6 +90,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stegano.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Crypto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randomutils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

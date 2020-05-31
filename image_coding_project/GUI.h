@@ -56,7 +56,7 @@ class frame_main : public wxFrame
 
 	public:
 
-		frame_main( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menu główne"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 381,365 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		frame_main( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menu główne"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 436,475 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_main();
 
@@ -113,9 +113,9 @@ class frame_decode_A : public wxFrame
 		wxButton* button_return;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void frame_decode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_decode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 
@@ -148,7 +148,7 @@ class frame_encode_B : public wxFrame
 		wxButton* button_return;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void frame_encode_B_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
@@ -184,10 +184,10 @@ class frame_decode_B : public wxFrame
 		wxButton* button_return;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void frame_decode_B_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void button_load_input1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_load_input2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_decode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 
@@ -220,7 +220,7 @@ class frame_encode_AB : public wxFrame
 		wxButton* button_return;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void frame_encode_AB_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void button_load_input_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
@@ -256,10 +256,10 @@ class frame_decode_AB : public wxFrame
 		wxButton* button_return;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void frame_decode_AB_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void button_load_input1_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_load_input2_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void button_encode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void button_decode_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_save_output_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void button_return_OnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 

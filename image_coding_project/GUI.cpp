@@ -114,9 +114,10 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -208,6 +209,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -242,9 +244,9 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_encode_A_OnUpdateUI ) );
+	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_decode_A_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_input_OnButtonClick ), NULL, this );
-	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_return_OnButtonClick ), NULL, this );
 }
@@ -252,9 +254,9 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 frame_decode_A::~frame_decode_A()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_encode_A_OnUpdateUI ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_decode_A_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_input_OnButtonClick ), NULL, this );
-	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_return_OnButtonClick ), NULL, this );
 
@@ -299,6 +301,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -348,7 +351,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_B::frame_encode_A_OnUpdateUI ) );
+	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_B::frame_encode_B_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_load_input_OnButtonClick ), NULL, this );
 	button_encode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_save_output1_OnButtonClick ), NULL, this );
@@ -359,7 +362,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 frame_encode_B::~frame_encode_B()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_B::frame_encode_A_OnUpdateUI ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_B::frame_encode_B_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_load_input_OnButtonClick ), NULL, this );
 	button_encode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_B::button_save_output1_OnButtonClick ), NULL, this );
@@ -422,6 +425,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -456,10 +460,10 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_B::frame_encode_A_OnUpdateUI ) );
+	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_B::frame_decode_B_OnUpdateUI ) );
 	button_load_input1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_load_input2_OnButtonClick ), NULL, this );
-	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_return_OnButtonClick ), NULL, this );
 }
@@ -467,10 +471,10 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 frame_decode_B::~frame_decode_B()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_B::frame_encode_A_OnUpdateUI ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_B::frame_decode_B_OnUpdateUI ) );
 	button_load_input1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_load_input2_OnButtonClick ), NULL, this );
-	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_B::button_return_OnButtonClick ), NULL, this );
 
@@ -515,6 +519,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -564,7 +569,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_A_OnUpdateUI ) );
+	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_AB_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_input_OnButtonClick ), NULL, this );
 	button_encode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output1_OnButtonClick ), NULL, this );
@@ -575,7 +580,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 frame_encode_AB::~frame_encode_AB()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_A_OnUpdateUI ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_AB_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_input_OnButtonClick ), NULL, this );
 	button_encode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output1_OnButtonClick ), NULL, this );
@@ -638,6 +643,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	text_info->SetMinSize( wxSize( 200,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -672,10 +678,10 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_encode_A_OnUpdateUI ) );
+	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_decode_AB_OnUpdateUI ) );
 	button_load_input1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input2_OnButtonClick ), NULL, this );
-	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_return_OnButtonClick ), NULL, this );
 }
@@ -683,10 +689,10 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 frame_decode_AB::~frame_decode_AB()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_encode_A_OnUpdateUI ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_decode_AB_OnUpdateUI ) );
 	button_load_input1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input2_OnButtonClick ), NULL, this );
-	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_encode_OnButtonClick ), NULL, this );
+	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_return_OnButtonClick ), NULL, this );
 

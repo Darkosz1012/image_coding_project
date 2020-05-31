@@ -18,9 +18,9 @@ class GUI_frame_decode_A : public frame_decode_A
 {
 	protected:
 		// Handlers for frame_decode_A events.
-		void frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event );
+		void frame_decode_A_OnUpdateUI( wxUpdateUIEvent& event );
 		void button_load_input_OnButtonClick( wxCommandEvent& event );
-		void button_encode_OnButtonClick( wxCommandEvent& event );
+		void button_decode_OnButtonClick( wxCommandEvent& event );
 		void button_save_output_OnButtonClick( wxCommandEvent& event );
 		void button_return_OnButtonClick( wxCommandEvent& event );
 	public:
@@ -33,6 +33,9 @@ class GUI_frame_decode_A : public frame_decode_A
 		// metody obslugujace gauge - zakres i wartosc
 		void setGaugeRange(int);
 		void setGaugeValue(int);
+
+
+
 };
 
 #endif // __GUI_frame_decode_A__

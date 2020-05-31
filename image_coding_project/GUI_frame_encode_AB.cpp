@@ -7,9 +7,9 @@ frame_encode_AB( parent )
 
 }
 
-void GUI_frame_encode_AB::frame_encode_A_OnUpdateUI( wxUpdateUIEvent& event )
+void GUI_frame_encode_AB::frame_encode_AB_OnUpdateUI( wxUpdateUIEvent& event )
 {
-// TODO: Implement frame_encode_A_OnUpdateUI
+// TODO: Implement frame_encode_AB_OnUpdateUI
 }
 
 void GUI_frame_encode_AB::button_load_input_OnButtonClick( wxCommandEvent& event )
@@ -36,3 +36,6 @@ void GUI_frame_encode_AB::button_return_OnButtonClick( wxCommandEvent& event )
 {
 // TODO: Implement button_return_OnButtonClick
 }
+
+
+
