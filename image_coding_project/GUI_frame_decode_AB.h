@@ -18,6 +18,7 @@ class GUI_frame_decode_AB : public frame_decode_AB
 		void frame_decode_AB_OnUpdateUI( wxUpdateUIEvent& event );
 		void button_load_input1_OnButtonClick( wxCommandEvent& event );
 		void button_load_input2_OnButtonClick( wxCommandEvent& event );
+		void button_load_ref_OnButtonClick( wxCommandEvent& event );
 		void button_decode_OnButtonClick( wxCommandEvent& event );
 		void button_save_output_OnButtonClick( wxCommandEvent& event );
 		void button_return_OnButtonClick( wxCommandEvent& event );
@@ -25,6 +26,7 @@ class GUI_frame_decode_AB : public frame_decode_AB
 		/** Constructor */
 		GUI_frame_decode_AB( wxWindow* parent );
 	//// end generated class members
+
 
 
 

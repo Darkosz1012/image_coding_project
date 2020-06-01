@@ -17,51 +17,51 @@ void GUI_frame_decode_B::frame_decode_B_OnUpdateUI( wxUpdateUIEvent& event )
 
 void GUI_frame_decode_B::button_load_input1_OnButtonClick( wxCommandEvent& event )
 {
-	LoadSaveManager loadFile(this);
-	loadFile.Load();
-	if (loadFile.getLoadedImage().IsOk())
-	{
-		inputImage1 = std::make_shared<wxImage>(loadFile.getLoadedImage());
-		outputImage = std::make_shared<wxImage>(wxNullImage);
-		panel_output_image->ClearBackground();
-		RepaintAll();
-	}
+LoadSaveManager loadFile(this);
+loadFile.Load();
+if (loadFile.getLoadedImage().IsOk())
+{
+inputImage1 = std::make_shared<wxImage>(loadFile.getLoadedImage());
+outputImage = std::make_shared<wxImage>(wxNullImage);
+panel_output_image->ClearBackground();
+RepaintAll();
+}
 }
 
 void GUI_frame_decode_B::button_load_input2_OnButtonClick( wxCommandEvent& event )
 {
-	LoadSaveManager loadFile(this);
-	loadFile.Load();
-	if (loadFile.getLoadedImage().IsOk())
-	{
-		inputImage2 = std::make_shared<wxImage>(loadFile.getLoadedImage());
-		outputImage = std::make_shared<wxImage>(wxNullImage);
-		panel_output_image->ClearBackground();
-		RepaintAll();
-	}
+LoadSaveManager loadFile(this);
+loadFile.Load();
+if (loadFile.getLoadedImage().IsOk())
+{
+inputImage2 = std::make_shared<wxImage>(loadFile.getLoadedImage());
+outputImage = std::make_shared<wxImage>(wxNullImage);
+panel_output_image->ClearBackground();
+RepaintAll();
+}
 }
 
 void GUI_frame_decode_B::button_decode_OnButtonClick( wxCommandEvent& event )
 {
-	try {
-		Crypto crypto([=](int a, int b) {
-			this->progress(a, b);
-		});
-		crypto.decode(*inputImage1, *inputImage2, *outputImage);
-		RepaintAll();
-	}
-	catch (std::exception err) {
-		text_info->SetLabelText(wxString(err.what()));
-	}
+try {
+Crypto crypto([=](int number, int all) {
+this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
+});
+crypto.decode(*inputImage1, *inputImage2, *outputImage);
+RepaintAll();
+}
+catch (std::exception err) {
+text_info->SetLabelText(wxString(err.what()));
+}
 }
 
 void GUI_frame_decode_B::button_save_output_OnButtonClick( wxCommandEvent& event )
 {
-	if (outputImage != nullptr && outputImage->IsOk())
-	{
-		LoadSaveManager saveFile(this);
-		saveFile.Save(*outputImage);
-	}
+if (outputImage != nullptr && outputImage->IsOk())
+{
+LoadSaveManager saveFile(this);
+saveFile.Save(*outputImage);
+}
 }
 
 void GUI_frame_decode_B::button_return_OnButtonClick( wxCommandEvent& event )
@@ -81,7 +81,8 @@ void GUI_frame_decode_B::RepaintAll()
 	if (outputImage != nullptr && outputImage->IsOk())
 		Repaint(*outputImage, panel_output_image);
 }
-
-void GUI_frame_decode_B::progress(int number, int all) {
-	gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
-}
+//
+//void GUI_frame_decode_B::progress(int number, int all) 
+//{
+//	gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
+//}

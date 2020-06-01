@@ -1,4 +1,5 @@
 #include "GUI_frame_main.h"
+
 GUI_frame_main::GUI_frame_main( wxWindow* parent )
 :
 frame_main( parent )
@@ -20,14 +21,14 @@ decodeAFrame->Show(true);
 
 void GUI_frame_main::button_encode_B_OnButtonClick( wxCommandEvent& event )
 {
-	wxFrame *encodeBFrame = new GUI_frame_encode_B(nullptr);
-	encodeBFrame->Show(true);
+wxFrame *encodeBFrame = new GUI_frame_encode_B(nullptr);
+encodeBFrame->Show(true);
 }
 
 void GUI_frame_main::button_decode_B_OnButtonClick( wxCommandEvent& event )
 {
-	wxFrame *decodeBFrame = new GUI_frame_decode_B(nullptr);
-	decodeBFrame->Show(true);
+wxFrame *decodeBFrame = new GUI_frame_decode_B(nullptr);
+decodeBFrame->Show(true);
 }
 
 void GUI_frame_main::button_encode_AB_OnButtonClick( wxCommandEvent& event )

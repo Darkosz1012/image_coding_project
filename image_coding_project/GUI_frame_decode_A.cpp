@@ -29,6 +29,11 @@ setGaugeValue(0);	// reset gauge
 }
 }
 
+void GUI_frame_decode_A::button_load_ref_OnButtonClick( wxCommandEvent& event )
+{
+// TODO: Implement button_load_ref_OnButtonClick
+}
+
 void GUI_frame_decode_A::button_decode_OnButtonClick( wxCommandEvent& event )
 {
 if (inputImage.IsOk())	// jezeli wczytany obrazek istnieje
@@ -54,6 +59,7 @@ void GUI_frame_decode_A::button_return_OnButtonClick( wxCommandEvent& event )
 {
 // TODO: Implement button_return_OnButtonClick
 }
+
 
 
 

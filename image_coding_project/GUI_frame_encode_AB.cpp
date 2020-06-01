@@ -17,6 +17,11 @@ void GUI_frame_encode_AB::button_load_input_OnButtonClick( wxCommandEvent& event
 // TODO: Implement button_load_input_OnButtonClick
 }
 
+void GUI_frame_encode_AB::button_load_ref_OnButtonClick( wxCommandEvent& event )
+{
+// TODO: Implement button_load_ref_OnButtonClick
+}
+
 void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 {
 // TODO: Implement button_encode_OnButtonClick
@@ -36,6 +41,7 @@ void GUI_frame_encode_AB::button_return_OnButtonClick( wxCommandEvent& event )
 {
 // TODO: Implement button_return_OnButtonClick
 }
+
 
 
 

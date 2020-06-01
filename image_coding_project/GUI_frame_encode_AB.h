@@ -17,6 +17,7 @@ class GUI_frame_encode_AB : public frame_encode_AB
 		// Handlers for frame_encode_AB events.
 		void frame_encode_AB_OnUpdateUI( wxUpdateUIEvent& event );
 		void button_load_input_OnButtonClick( wxCommandEvent& event );
+		void button_load_ref_OnButtonClick( wxCommandEvent& event );
 		void button_encode_OnButtonClick( wxCommandEvent& event );
 		void button_save_output1_OnButtonClick( wxCommandEvent& event );
 		void button_save_output2_OnButtonClick( wxCommandEvent& event );
@@ -25,6 +26,7 @@ class GUI_frame_encode_AB : public frame_encode_AB
 		/** Constructor */
 		GUI_frame_encode_AB( wxWindow* parent );
 	//// end generated class members
+
 
 
 

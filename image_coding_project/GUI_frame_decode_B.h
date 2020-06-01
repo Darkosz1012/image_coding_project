@@ -35,7 +35,8 @@ class GUI_frame_decode_B : public frame_decode_B
 		std::shared_ptr<wxImage> inputImage1;
 		std::shared_ptr<wxImage> inputImage2;
 		std::shared_ptr<wxImage> outputImage;
-		void progress(int number, int all);
+		//void progress(int number, int all);
+
 
 
 };

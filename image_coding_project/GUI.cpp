@@ -17,38 +17,38 @@ frame_main::frame_main( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText1 = new wxStaticText( this, wxID_ANY, wxT("Witamy!"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1 = new wxStaticText( this, wxID_ANY, _("Witamy!"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText1->Wrap( -1 );
 	m_staticText1->SetFont( wxFont( 18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
 
 	bSizer1->Add( m_staticText1, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	m_staticText2 = new wxStaticText( this, wxID_ANY, wxT("Wybierz jedną z opcji, by przejść dalej."), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText2 = new wxStaticText( this, wxID_ANY, _("Wybierz jedną z opcji, by przejść dalej."), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText2->Wrap( -1 );
 	m_staticText2->SetFont( wxFont( 12, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
 
 	bSizer1->Add( m_staticText2, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	m_staticText3 = new wxStaticText( this, wxID_ANY, wxT("Autorzy: Dariusz Biela, Dawid Chara, Jakub Perlak "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText3 = new wxStaticText( this, wxID_ANY, _("Autorzy: Dariusz Biela, Dawid Chara, Jakub Perlak "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText3->Wrap( -1 );
 	bSizer1->Add( m_staticText3, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_encode_A = new wxButton( this, wxID_ANY, wxT("Koduj metodą steganograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_encode_A = new wxButton( this, wxID_ANY, _("Koduj metodą steganograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_encode_A, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_decode_A = new wxButton( this, wxID_ANY, wxT("Dekoduj metodą steganograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_decode_A = new wxButton( this, wxID_ANY, _("Dekoduj metodą steganograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_decode_A, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_encode_B = new wxButton( this, wxID_ANY, wxT("Koduj metodą kryptograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_encode_B = new wxButton( this, wxID_ANY, _("Koduj metodą kryptograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_encode_B, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_decode_B = new wxButton( this, wxID_ANY, wxT("Dekoduj metodą kryptograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_decode_B = new wxButton( this, wxID_ANY, _("Dekoduj metodą kryptograficzną"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_decode_B, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_encode_AB = new wxButton( this, wxID_ANY, wxT("Koduj obiema metodami"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_encode_AB = new wxButton( this, wxID_ANY, _("Koduj obiema metodami"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_encode_AB, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	button_decode_AB = new wxButton( this, wxID_ANY, wxT("Dekoduj obiema metodami"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
+	button_decode_AB = new wxButton( this, wxID_ANY, _("Dekoduj obiema metodami"), wxDefaultPosition, wxSize( 260,-1 ), 0 );
 	bSizer1->Add( button_decode_AB, 0, wxALIGN_CENTER|wxALL, 5 );
 
 
@@ -92,7 +92,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input = new wxButton( this, wxID_ANY, wxT("Wczytaj zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input = new wxButton( this, wxID_ANY, _("Wczytaj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -104,10 +104,25 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer22->Add( bSizer3, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxVERTICAL );
+
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
+
+	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
+	panel_input_ref->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	panel_input_ref->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOBK ) );
+
+	bSizer31->Add( panel_input_ref, 1, wxEXPAND | wxALL, 5 );
+
+
+	bSizer22->Add( bSizer31, 1, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_encode = new wxButton( this, wxID_ANY, wxT("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_encode = new wxButton( this, wxID_ANY, _("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_encode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -117,7 +132,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -127,7 +142,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output = new wxButton( this, wxID_ANY, wxT("Zapisz zakodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output = new wxButton( this, wxID_ANY, _("Zapisz zakodowane obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -142,7 +157,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer2->Add( bSizer22, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -154,6 +169,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	// Connect Events
 	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_A::frame_encode_A_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_load_ref_OnButtonClick ), NULL, this );
 	button_encode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_encode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_return_OnButtonClick ), NULL, this );
@@ -164,6 +180,7 @@ frame_encode_A::~frame_encode_A()
 	// Disconnect Events
 	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_A::frame_encode_A_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_load_ref_OnButtonClick ), NULL, this );
 	button_encode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_encode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_A::button_return_OnButtonClick ), NULL, this );
@@ -184,7 +201,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input = new wxButton( this, wxID_ANY, wxT("Wczytaj zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input = new wxButton( this, wxID_ANY, _("Wczytaj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -196,10 +213,25 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer23->Add( bSizer3, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxVERTICAL );
+
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
+
+	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
+	panel_input_ref->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	panel_input_ref->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOBK ) );
+
+	bSizer31->Add( panel_input_ref, 1, wxEXPAND | wxALL, 5 );
+
+
+	bSizer23->Add( bSizer31, 1, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_decode = new wxButton( this, wxID_ANY, wxT("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_decode = new wxButton( this, wxID_ANY, _("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_decode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -209,7 +241,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -219,7 +251,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output = new wxButton( this, wxID_ANY, wxT("Zapisz odkodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output = new wxButton( this, wxID_ANY, _("Zapisz odkodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -234,7 +266,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer2->Add( bSizer23, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -246,6 +278,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	// Connect Events
 	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_decode_A_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_ref_OnButtonClick ), NULL, this );
 	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_return_OnButtonClick ), NULL, this );
@@ -256,6 +289,7 @@ frame_decode_A::~frame_decode_A()
 	// Disconnect Events
 	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_A::frame_decode_A_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_load_ref_OnButtonClick ), NULL, this );
 	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_A::button_return_OnButtonClick ), NULL, this );
@@ -276,7 +310,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input = new wxButton( this, wxID_ANY, wxT("Wczytaj zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input = new wxButton( this, wxID_ANY, _("Wczytaj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -291,7 +325,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_encode = new wxButton( this, wxID_ANY, wxT("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_encode = new wxButton( this, wxID_ANY, _("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_encode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -301,7 +335,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -311,7 +345,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output1 = new wxButton( this, wxID_ANY, wxT("Zapisz pierwsze zakodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output1 = new wxButton( this, wxID_ANY, _("Zapisz pierwszy zakodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output1, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image1 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -326,7 +360,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer41;
 	bSizer41 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output2 = new wxButton( this, wxID_ANY, wxT("Zapisz drugie zakodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output2 = new wxButton( this, wxID_ANY, _("Zapisz drugi zakodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer41->Add( button_save_output2, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -341,7 +375,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer2->Add( bSizer22, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -385,7 +419,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input1 = new wxButton( this, wxID_ANY, wxT("Wczytaj pierwsze zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input1 = new wxButton( this, wxID_ANY, _("Wczytaj pierwszy obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer31->Add( button_load_input1, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image1 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -400,7 +434,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input2 = new wxButton( this, wxID_ANY, wxT("Wczytaj drugie zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input2 = new wxButton( this, wxID_ANY, _("Wczytaj drugi obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input2, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -415,7 +449,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_decode = new wxButton( this, wxID_ANY, wxT("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_decode = new wxButton( this, wxID_ANY, _("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_decode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -425,7 +459,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -435,7 +469,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output = new wxButton( this, wxID_ANY, wxT("Zapisz odkodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output = new wxButton( this, wxID_ANY, _("Zapisz odkodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -450,7 +484,7 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer2->Add( bSizer23, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -494,7 +528,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input = new wxButton( this, wxID_ANY, wxT("Wczytaj zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input = new wxButton( this, wxID_ANY, _("Wczytaj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -506,10 +540,25 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer22->Add( bSizer3, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxVERTICAL );
+
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
+
+	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
+	panel_input_ref->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	panel_input_ref->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOBK ) );
+
+	bSizer31->Add( panel_input_ref, 1, wxEXPAND | wxALL, 5 );
+
+
+	bSizer22->Add( bSizer31, 1, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_encode = new wxButton( this, wxID_ANY, wxT("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_encode = new wxButton( this, wxID_ANY, _("Zakoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_encode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -519,7 +568,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -529,7 +578,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output1 = new wxButton( this, wxID_ANY, wxT("Zapisz pierwsze zakodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output1 = new wxButton( this, wxID_ANY, _("Zapisz pierwszy zakodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output1, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image1 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -544,7 +593,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer41;
 	bSizer41 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output2 = new wxButton( this, wxID_ANY, wxT("Zapisz drugie zakodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output2 = new wxButton( this, wxID_ANY, _("Zapisz drugi zakodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer41->Add( button_save_output2, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -559,7 +608,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer2->Add( bSizer22, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -571,6 +620,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	// Connect Events
 	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_AB_OnUpdateUI ) );
 	button_load_input->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_ref_OnButtonClick ), NULL, this );
 	button_encode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output1_OnButtonClick ), NULL, this );
 	button_save_output2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output2_OnButtonClick ), NULL, this );
@@ -582,6 +632,7 @@ frame_encode_AB::~frame_encode_AB()
 	// Disconnect Events
 	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_encode_AB::frame_encode_AB_OnUpdateUI ) );
 	button_load_input->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_input_OnButtonClick ), NULL, this );
+	button_load_ref->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_load_ref_OnButtonClick ), NULL, this );
 	button_encode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_encode_OnButtonClick ), NULL, this );
 	button_save_output1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output1_OnButtonClick ), NULL, this );
 	button_save_output2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_encode_AB::button_save_output2_OnButtonClick ), NULL, this );
@@ -603,7 +654,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input1 = new wxButton( this, wxID_ANY, wxT("Wczytaj pierwsze zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input1 = new wxButton( this, wxID_ANY, _("Wczytaj pierwszy obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer31->Add( button_load_input1, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image1 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -618,7 +669,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_input2 = new wxButton( this, wxID_ANY, wxT("Wczytaj drugie zdjęcie "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_input2 = new wxButton( this, wxID_ANY, _("Wczytaj drugi obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( button_load_input2, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_image2 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -630,10 +681,25 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer23->Add( bSizer3, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer311;
+	bSizer311 = new wxBoxSizer( wxVERTICAL );
+
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer311->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
+
+	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
+	panel_input_ref->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
+	panel_input_ref->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOBK ) );
+
+	bSizer311->Add( panel_input_ref, 1, wxEXPAND | wxALL, 5 );
+
+
+	bSizer23->Add( bSizer311, 1, wxEXPAND, 5 );
+
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
-	button_decode = new wxButton( this, wxID_ANY, wxT("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_decode = new wxButton( this, wxID_ANY, _("Odkoduj obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( button_decode, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
 	gauge_progress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
@@ -643,7 +709,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
-	text_info->SetMinSize( wxSize( 200,200 ) );
+	text_info->SetMinSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
@@ -653,7 +719,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
 
-	button_save_output = new wxButton( this, wxID_ANY, wxT("Zapisz odkodowane zdjęcie"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_save_output = new wxButton( this, wxID_ANY, _("Zapisz odkodowany obraz"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( button_save_output, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_output_image = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -668,7 +734,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 
 	bSizer2->Add( bSizer23, 1, wxEXPAND, 5 );
 
-	button_return = new wxButton( this, wxID_ANY, wxT("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
+	button_return = new wxButton( this, wxID_ANY, _("Powrót"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( button_return, 0, wxALL, 5 );
 
 
@@ -681,6 +747,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_decode_AB_OnUpdateUI ) );
 	button_load_input1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input2_OnButtonClick ), NULL, this );
+	button_load_ref->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_ref_OnButtonClick ), NULL, this );
 	button_decode->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_return_OnButtonClick ), NULL, this );
@@ -692,6 +759,7 @@ frame_decode_AB::~frame_decode_AB()
 	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( frame_decode_AB::frame_decode_AB_OnUpdateUI ) );
 	button_load_input1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input1_OnButtonClick ), NULL, this );
 	button_load_input2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_input2_OnButtonClick ), NULL, this );
+	button_load_ref->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_load_ref_OnButtonClick ), NULL, this );
 	button_decode->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_decode_OnButtonClick ), NULL, this );
 	button_save_output->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_save_output_OnButtonClick ), NULL, this );
 	button_return->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( frame_decode_AB::button_return_OnButtonClick ), NULL, this );

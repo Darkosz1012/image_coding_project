@@ -31,13 +31,14 @@ class GUI_frame_encode_B : public frame_encode_B
 		GUI_frame_encode_B( wxWindow* parent );
 	//// end generated class members
 		void RepaintAll();
-		
+
 	protected:
 		std::shared_ptr<wxImage> inputImage;
 		std::shared_ptr<wxImage> outputImage1;
 		std::shared_ptr<wxImage> outputImage2;
-		void progress(int number, int all);
-		
+		//void progress(int number, int all);
+
+
 
 };
 
