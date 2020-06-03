@@ -1,8 +1,6 @@
 #include "GUI_frame_decode_B.h"
 
-GUI_frame_decode_B::GUI_frame_decode_B( wxWindow* parent )
-:
-frame_decode_B( parent )
+GUI_frame_decode_B::GUI_frame_decode_B(wxWindow* parent) : frame_decode_B(parent), _logger(text_info)
 {
 	inputImage1 = std::make_shared<wxImage>(wxNullImage);
 	inputImage2 = std::make_shared<wxImage>(wxNullImage);
@@ -10,63 +8,72 @@ frame_decode_B( parent )
 	gauge_progress->SetRange(100);
 }
 
-void GUI_frame_decode_B::frame_decode_B_OnUpdateUI( wxUpdateUIEvent& event )
+void GUI_frame_decode_B::frame_decode_B_OnUpdateUI(wxUpdateUIEvent& event)
 {
 	RepaintAll();
 }
 
-void GUI_frame_decode_B::button_load_input1_OnButtonClick( wxCommandEvent& event )
+void GUI_frame_decode_B::button_load_input1_OnButtonClick(wxCommandEvent& event)
 {
-LoadSaveManager loadFile(this);
-loadFile.Load();
-if (loadFile.getLoadedImage().IsOk())
-{
-inputImage1 = std::make_shared<wxImage>(loadFile.getLoadedImage());
-outputImage = std::make_shared<wxImage>(wxNullImage);
-panel_output_image->ClearBackground();
-RepaintAll();
-}
+	LoadSaveManager loadFile(this);
+	loadFile.Load();
+	if (loadFile.getLoadedImage().IsOk())
+	{
+		inputImage1 = std::make_shared<wxImage>(loadFile.getLoadedImage());
+		outputImage = std::make_shared<wxImage>(wxNullImage);
+		panel_output_image->ClearBackground();
+		RepaintAll();
+		_logger.info("Poprawnie za³adowano pierwszy obraz do dekodowania");
+
+	}
 }
 
-void GUI_frame_decode_B::button_load_input2_OnButtonClick( wxCommandEvent& event )
+void GUI_frame_decode_B::button_load_input2_OnButtonClick(wxCommandEvent& event)
 {
-LoadSaveManager loadFile(this);
-loadFile.Load();
-if (loadFile.getLoadedImage().IsOk())
-{
-inputImage2 = std::make_shared<wxImage>(loadFile.getLoadedImage());
-outputImage = std::make_shared<wxImage>(wxNullImage);
-panel_output_image->ClearBackground();
-RepaintAll();
-}
+	LoadSaveManager loadFile(this);
+	loadFile.Load();
+	if (loadFile.getLoadedImage().IsOk())
+	{
+		inputImage2 = std::make_shared<wxImage>(loadFile.getLoadedImage());
+		outputImage = std::make_shared<wxImage>(wxNullImage);
+		panel_output_image->ClearBackground();
+		RepaintAll();
+		_logger.info("Poprawnie za³adowano drugi obraz do dekodowania");
+
+	}
 }
 
-void GUI_frame_decode_B::button_decode_OnButtonClick( wxCommandEvent& event )
+void GUI_frame_decode_B::button_decode_OnButtonClick(wxCommandEvent& event)
 {
-try {
-Crypto crypto([=](int number, int all) {
-this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
-});
-crypto.decode(*inputImage1, *inputImage2, *outputImage);
-RepaintAll();
-}
-catch (std::exception err) {
-text_info->SetLabelText(wxString(err.what()));
-}
+	try {
+		Crypto crypto([=](int number, int all) {
+			this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
+		});
+		crypto.decode(*inputImage1, *inputImage2, *outputImage);
+		RepaintAll();
+		_logger.info("Poprawnie odkodowano obraz");
+	}
+	catch (std::exception err) {
+		_logger.error("Wyst¹pi³ b³¹d podczas dekodowania obrazu");
+		_logger.error(err.what());
+	}
 }
 
-void GUI_frame_decode_B::button_save_output_OnButtonClick( wxCommandEvent& event )
+void GUI_frame_decode_B::button_save_output_OnButtonClick(wxCommandEvent& event)
 {
-if (outputImage != nullptr && outputImage->IsOk())
-{
-LoadSaveManager saveFile(this);
-saveFile.Save(*outputImage);
-}
+	if (outputImage != nullptr && outputImage->IsOk())
+	{
+		LoadSaveManager saveFile(this);
+		saveFile.Save(*outputImage);
+		_logger.info("Poprawnie zapisano odkodowany obraz");
+	}
+	else _logger.info("Wys¹tpi³ b³¹d podczas zapisu odkodowanego obrazu");
+
 }
 
-void GUI_frame_decode_B::button_return_OnButtonClick( wxCommandEvent& event )
+void GUI_frame_decode_B::button_return_OnButtonClick(wxCommandEvent& event)
 {
-// TODO: Implement button_return_OnButtonClick
+	Destroy();
 }
 
 

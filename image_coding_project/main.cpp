@@ -1,7 +1,8 @@
 #include <wx/wxprec.h>
 #include <wx/wx.h>
 #include "GUI_frame_main.h"
-#include <locale>
+
+
 class MyApp : public wxApp {
 
 public:
@@ -14,7 +15,6 @@ IMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-	setlocale(LC_ALL, "polish");
 	wxFrame *mainFrame = new GUI_frame_main(NULL);
 	mainFrame->Show(true);
 	SetTopWindow(mainFrame);
