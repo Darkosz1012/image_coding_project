@@ -2,7 +2,10 @@
 
 GUI_frame_encode_AB::GUI_frame_encode_AB( wxWindow* parent ) : frame_encode_AB( parent ), _logger(text_info)
 {
-
+	inputImage = std::make_shared<wxImage>(wxNullImage);
+	referenceImage = std::make_shared<wxImage>(wxNullImage);
+	outputImage1 = std::make_shared<wxImage>(wxNullImage);
+	outputImage2 = std::make_shared<wxImage>(wxNullImage);
 }
 
 void GUI_frame_encode_AB::frame_encode_AB_OnUpdateUI(wxUpdateUIEvent& event)
@@ -68,8 +71,8 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 	_logger.info("Kodowanie metodą steganograficzną");
 	if (outputImage1->IsOk() && outputImage2->IsOk())
 	{
-		Stegano meCoding1(*outputImage1, gauge_progress);
-		Stegano meCoding2(*outputImage2, gauge_progress);
+		Stegano meCoding1(*outputImage1, *referenceImage, gauge_progress);
+		Stegano meCoding2(*outputImage2, *referenceImage, gauge_progress);
 		meCoding1.SteganoCode(*outputImage1);
 		meCoding2.SteganoCode(*outputImage2);
 		Repaint(*outputImage1, panel_output_image1);

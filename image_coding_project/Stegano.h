@@ -4,20 +4,21 @@
 class Stegano
 {
 protected:
+	wxImage inputImage;
 	wxImage referImage;
 	wxGauge* gauge;
 public:
 	// konstruktor
-	Stegano(wxImage, wxGauge *);
+	Stegano(wxImage& myInputImage, wxImage& myRefImage, wxGauge * myGauge);
 	// kodowanie
-	void SteganoCode(wxImage &);
+	void SteganoCode(wxImage & myOutputImage);
 	// dekodowanie
-	void SteganoDec(wxImage &);
+	void SteganoDec(wxImage & myOutputImage);
 protected:
 	// funkcja okreslajaca typ jasnosci pod kodowanie
-	int ComputeLumTypeCode(int, unsigned const char *);
+	int ComputeLumTypeCode(int index, unsigned const char * data);
 	// kodowanie pikselu
-	void CodeCurrentPixel(int, int, unsigned char *);
+	void CodeCurrentPixel(int index, int lumType, unsigned char * finalData);
 	// funkcja okreslajaca typ jasnosci pod dekodowanie
-	int ComputeLumTypeDecode(int, unsigned const char *, unsigned const char *);
+	int ComputeLumTypeDecode(int index, unsigned const char * data, unsigned const char * finalData);
 };

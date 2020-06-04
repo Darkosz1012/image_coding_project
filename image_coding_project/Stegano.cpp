@@ -1,13 +1,17 @@
 #include "Stegano.h"
 
 // konstruktor
-Stegano::Stegano(wxImage imageInput, wxGauge * myGauge)
+Stegano::Stegano(wxImage& myInputImage, wxImage& myRefImage, wxGauge * myGauge)
 {
 	gauge = myGauge;	// gauge
-	if (!referImage.LoadFile("stegano_refer.png")) wxMessageBox(_("Nie uda³o za³adowaæ siê obrazka referencyjnego!"));	// zaladowanie obrazka referencyjnego
+
+	if (myInputImage.IsOk()) inputImage = myInputImage.Copy();
+
+	if (myRefImage.IsOk()) referImage = myRefImage.Copy();
+	else if (!referImage.LoadFile("stegano_refer.png")) wxMessageBox(_("Nie uda³o za³adowaæ siê obrazka referencyjnego!"));	// zaladowanie obrazka referencyjnego
 	// reskalowanie obrazka referencyjnego
-	int width = imageInput.GetSize().GetWidth();
-	int height = imageInput.GetSize().GetHeight();
+	int width = myInputImage.GetSize().GetWidth();
+	int height = myInputImage.GetSize().GetHeight();
 	referImage.Rescale(width, height);
 }
 
@@ -27,16 +31,15 @@ void Stegano::CodeCurrentPixel(int index, int lumType, unsigned char * finalData
 }
 
 // kodowanie steganograficzne podanego obrazka
-void Stegano::SteganoCode(wxImage & imageInput)
+void Stegano::SteganoCode(wxImage & imageOutput)
 {
 	// wczytanie i przygotowanie obrazkow
-	wxImage inputCopy = imageInput.Copy();
-	imageInput = referImage.Copy();
-	int size = imageInput.GetSize().GetWidth() * imageInput.GetSize().GetHeight() * 3;	// rozmiar danych
+	imageOutput = referImage.Copy();
+	int size = imageOutput.GetSize().GetWidth() * imageOutput.GetSize().GetHeight() * 3;	// rozmiar danych
 	gauge->SetRange(size);	// zakres gauge
 	// pobranie danych
-	unsigned const char * data = inputCopy.GetData();
-	unsigned char * finalData = imageInput.GetData();
+	unsigned const char * data = inputImage.GetData();
+	unsigned char * finalData = imageOutput.GetData();
 	// kodowanie kazdego piksela
 	int lumType;
 	for (int i = 0; i < size; i += 3)
@@ -58,18 +61,20 @@ int Stegano::ComputeLumTypeDecode(int index, unsigned const char * data, unsigne
 }
 
 // dekodowanie steganograficzne podanego obrazka
-void Stegano::SteganoDec(wxImage & imageInput)
+void Stegano::SteganoDec(wxImage & imageOutput)
 {
-	int size = imageInput.GetSize().GetWidth() * imageInput.GetSize().GetHeight() * 3;	// rozmiar danych
+	// wczytanie i przygotowanie obrazkow
+	imageOutput = inputImage.Copy();
+	int size = imageOutput.GetSize().GetWidth() * imageOutput.GetSize().GetHeight() * 3;	// rozmiar danych
 	// pobranie danych
-	unsigned const char * data = referImage.GetData();
-	unsigned char * finalData = imageInput.GetData();
+	unsigned const char * refData = referImage.GetData();
+	unsigned char * finalData = imageOutput.GetData();
 	gauge->SetRange(size);	// zakres gauge
 	// dekodowanie kazdego piksela
 	int lumType;
 	for (int i = 0; i < size; i += 3)
 	{
-		lumType = ComputeLumTypeDecode(i,data,finalData);	// okreslenie jasnosci piksela
+		lumType = ComputeLumTypeDecode(i, refData,finalData);	// okreslenie jasnosci piksela
 		finalData[i] = finalData[i + 1] = finalData[i + 2] = lumType == 0 ? 0 : lumType == 1 ? 37 : lumType == 2 ? 74 : 
 			lumType == 3 ? 111 : lumType == 4 ? 147 : lumType == 5 ? 183 : lumType == 6 ? 219 : 255;	// odkodowanie obrazka z inputImage za pomoca obrazka referencyjnego
 		gauge->SetValue(i);	// obsluga gauge

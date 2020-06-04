@@ -29,18 +29,17 @@ class GUI_frame_encode_A : public frame_encode_A
 		/** Constructor */
 		GUI_frame_encode_A( wxWindow* parent );
 	//// end generated class members
+		void RepaintAll();
 
-		wxImage inputImage;	// obrazek wczytywany (do zakodowania)
-		wxImage outputImage;	// obrazek zakodowany
 		// metody obslugujace gauge - zakres i wartosc
 		void setGaugeRange(int);
 		void setGaugeValue(int);
 
 	protected:
+		std::shared_ptr<wxImage> inputImage;
+		std::shared_ptr<wxImage> refImage;
+		std::shared_ptr<wxImage> outputImage;
 		TextBoxLogger _logger;
-
-
-
 };
 
 #endif // __GUI_frame_encode_A__

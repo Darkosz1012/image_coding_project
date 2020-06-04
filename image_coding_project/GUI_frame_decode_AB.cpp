@@ -2,7 +2,10 @@
 
 GUI_frame_decode_AB::GUI_frame_decode_AB( wxWindow* parent ) : frame_decode_AB( parent ), _logger(text_info)
 {
-
+	inputImage1 = std::make_shared<wxImage>(wxNullImage);
+	inputImage2 = std::make_shared<wxImage>(wxNullImage);
+	referenceImage = std::make_shared<wxImage>(wxNullImage);
+	outputImage = std::make_shared<wxImage>(wxNullImage);
 }
 
 void GUI_frame_decode_AB::frame_decode_AB_OnUpdateUI( wxUpdateUIEvent& event )
@@ -56,13 +59,13 @@ void GUI_frame_decode_AB::button_decode_OnButtonClick( wxCommandEvent& event )
 	outputImage = std::make_shared<wxImage>(wxNullImage);
 	if (inputImage1->IsOk() && inputImage2->IsOk())
 	{
-		Stegano meCoding1(*inputImage1, gauge_progress);
+		Stegano meCoding1(*inputImage1, *referenceImage, gauge_progress);
 		auto steganoDecoded1 = (*inputImage1).Copy();
 		meCoding1.SteganoDec(steganoDecoded1);
 		Repaint(steganoDecoded1, panel_output_image);
 		_logger.info("Poprawnie odkodowano pierwszy obraz metod¹ steganograficzn¹");
 
-		Stegano meCoding2(*inputImage2, gauge_progress);
+		Stegano meCoding2(*inputImage2, *referenceImage, gauge_progress);
 		auto steganoDecoded2 = (*inputImage2).Copy();
 		meCoding1.SteganoDec(steganoDecoded2);
 		Repaint(steganoDecoded1, panel_output_image);
