@@ -54,7 +54,7 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 	_logger.info("Kodowanie metodą kryptograficzną");
 	try {
 		Crypto crypto([=](int number, int all) {
-			this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
+			this->gauge_progress->SetValue(static_cast<double>(number) / all * 50 + 1);
 		});
 		crypto.encode(*inputImage, *outputImage1, *outputImage2);
 		_logger.info("Poprawnie zakodowano obraz metodą kryptograficzną");
@@ -65,14 +65,14 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 		_logger.error("Wystąpił błąd podczas kodowania obrazu metodą kryptograficzną");
 		_logger.error(err.what());
 	}
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-	gauge_progress->SetValue(0);
+	//std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	//gauge_progress->SetValue(0);
 
 	_logger.info("Kodowanie metodą steganograficzną");
 	if (outputImage1->IsOk() && outputImage2->IsOk())
 	{
-		Stegano meCoding1(*outputImage1, *referenceImage, gauge_progress);
-		Stegano meCoding2(*outputImage2, *referenceImage, gauge_progress);
+		Stegano meCoding1(*outputImage1, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 75 + 51); });
+		Stegano meCoding2(*outputImage2, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 76); });
 		meCoding1.SteganoCode(*outputImage1);
 		meCoding2.SteganoCode(*outputImage2);
 		Repaint(*outputImage1, panel_output_image1);

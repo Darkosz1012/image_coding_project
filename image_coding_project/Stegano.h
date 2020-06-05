@@ -1,15 +1,15 @@
 #pragma once
 #include <wx/wx.h>
+#include <functional>
 
 class Stegano
 {
 protected:
 	wxImage inputImage;
 	wxImage referImage;
-	wxGauge* gauge;
 public:
 	// konstruktor
-	Stegano(wxImage& myInputImage, wxImage& myRefImage, wxGauge * myGauge);
+	Stegano(wxImage& myInputImage, wxImage& myRefImage, std::function<void(int, int)> progressFunction);
 	// kodowanie
 	void SteganoCode(wxImage & myOutputImage);
 	// dekodowanie
@@ -21,4 +21,6 @@ protected:
 	void CodeCurrentPixel(int index, int lumType, unsigned char * finalData);
 	// funkcja okreslajaca typ jasnosci pod dekodowanie
 	int ComputeLumTypeDecode(int index, unsigned const char * data, unsigned const char * finalData);
+
+	std::function<void(int, int)> _progressFunction;
 };

@@ -31,10 +31,6 @@ class GUI_frame_encode_A : public frame_encode_A
 	//// end generated class members
 		void RepaintAll();
 
-		// metody obslugujace gauge - zakres i wartosc
-		void setGaugeRange(int);
-		void setGaugeValue(int);
-
 	protected:
 		std::shared_ptr<wxImage> inputImage;
 		std::shared_ptr<wxImage> refImage;

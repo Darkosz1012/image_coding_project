@@ -1,9 +1,9 @@
 #include "Stegano.h"
 
 // konstruktor
-Stegano::Stegano(wxImage& myInputImage, wxImage& myRefImage, wxGauge * myGauge)
+Stegano::Stegano(wxImage& myInputImage, wxImage& myRefImage, std::function<void(int, int)> progressFunction)
 {
-	gauge = myGauge;	// gauge
+	_progressFunction = progressFunction;
 
 	if (myInputImage.IsOk()) inputImage = myInputImage.Copy();
 
@@ -36,7 +36,6 @@ void Stegano::SteganoCode(wxImage & imageOutput)
 	// wczytanie i przygotowanie obrazkow
 	imageOutput = referImage.Copy();
 	int size = imageOutput.GetSize().GetWidth() * imageOutput.GetSize().GetHeight() * 3;	// rozmiar danych
-	gauge->SetRange(size);	// zakres gauge
 	// pobranie danych
 	unsigned const char * data = inputImage.GetData();
 	unsigned char * finalData = imageOutput.GetData();
@@ -46,7 +45,7 @@ void Stegano::SteganoCode(wxImage & imageOutput)
 	{
 		lumType = ComputeLumTypeCode(i,data);		// okreslenie jasnosci piksela
 		CodeCurrentPixel(i, lumType, finalData);	// zakodowanie imageInput w obrazku referencyjnym
-		gauge->SetValue(i);		// obsluga gauge
+		_progressFunction(i, size);		// obsluga gauge
 	}
 }
 
@@ -69,7 +68,6 @@ void Stegano::SteganoDec(wxImage & imageOutput)
 	// pobranie danych
 	unsigned const char * refData = referImage.GetData();
 	unsigned char * finalData = imageOutput.GetData();
-	gauge->SetRange(size);	// zakres gauge
 	// dekodowanie kazdego piksela
 	int lumType;
 	for (int i = 0; i < size; i += 3)
@@ -77,6 +75,6 @@ void Stegano::SteganoDec(wxImage & imageOutput)
 		lumType = ComputeLumTypeDecode(i, refData,finalData);	// okreslenie jasnosci piksela
 		finalData[i] = finalData[i + 1] = finalData[i + 2] = lumType == 0 ? 0 : lumType == 1 ? 37 : lumType == 2 ? 74 : 
 			lumType == 3 ? 111 : lumType == 4 ? 147 : lumType == 5 ? 183 : lumType == 6 ? 219 : 255;	// odkodowanie obrazka z inputImage za pomoca obrazka referencyjnego
-		gauge->SetValue(i);	// obsluga gauge
+		_progressFunction(i, size);	// obsluga gauge
 	}
 }

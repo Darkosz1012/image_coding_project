@@ -59,13 +59,13 @@ void GUI_frame_decode_AB::button_decode_OnButtonClick( wxCommandEvent& event )
 	outputImage = std::make_shared<wxImage>(wxNullImage);
 	if (inputImage1->IsOk() && inputImage2->IsOk())
 	{
-		Stegano meCoding1(*inputImage1, *referenceImage, gauge_progress);
+		Stegano meCoding1(*inputImage1, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 25 + 1); });
 		auto steganoDecoded1 = (*inputImage1).Copy();
 		meCoding1.SteganoDec(steganoDecoded1);
 		Repaint(steganoDecoded1, panel_output_image);
 		_logger.info("Poprawnie odkodowano pierwszy obraz metod¹ steganograficzn¹");
 
-		Stegano meCoding2(*inputImage2, *referenceImage, gauge_progress);
+		Stegano meCoding2(*inputImage2, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 50 + 26); });
 		auto steganoDecoded2 = (*inputImage2).Copy();
 		meCoding1.SteganoDec(steganoDecoded2);
 		Repaint(steganoDecoded1, panel_output_image);
@@ -79,7 +79,7 @@ void GUI_frame_decode_AB::button_decode_OnButtonClick( wxCommandEvent& event )
 	}
 	try {
 		Crypto crypto([=](int number, int all) {
-			this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1);
+			this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 51);
 		});
 		crypto.decode(*inputImage1, *inputImage2, *outputImage);
 		_logger.info("Poprawnie odkodowano obraz metod¹ kryptograficzn¹");
