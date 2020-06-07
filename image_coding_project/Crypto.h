@@ -8,7 +8,7 @@
 class Crypto
 {
 public:
-	Crypto(std::function<void(int, int)> progressFunction = [](int,int) {}) :_progressFunction{ progressFunction } {}
+	Crypto(std::function<void(int number, int all)> progressFunction = [](int,int) {}) :_progressFunction{ progressFunction } {}
 	void encode(const wxImage& originalImage, wxImage& codedImage1, wxImage& codedImage2 );
 	void decode(const wxImage& codedImage1, const wxImage& codedImage2, wxImage& originalImage);
 protected:
