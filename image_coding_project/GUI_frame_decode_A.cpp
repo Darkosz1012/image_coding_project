@@ -47,7 +47,7 @@ void GUI_frame_decode_A::button_load_ref_OnButtonClick(wxCommandEvent& event)
 
 void GUI_frame_decode_A::button_decode_OnButtonClick(wxCommandEvent& event)
 {
-	if (inputImage != nullptr && inputImage->IsOk())	// jezeli wczytany obrazek istnieje
+	try
 	{
 		// przygotowanie menad¿era dekodowania i obrazka do odkodowania
 		Stegano meCoding(*inputImage, *refImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1); });
@@ -55,7 +55,10 @@ void GUI_frame_decode_A::button_decode_OnButtonClick(wxCommandEvent& event)
 		Repaint(*outputImage, panel_output_image);	// rysowanie zdekodowanego obrazka
 		_logger.info("Poprawnie odkodowano obraz");
 	}
-	else _logger.error("Wystąpił błąd podczas dekodowania obrazu");
+	catch (std::exception err) {
+		_logger.error("Wystąpił błąd podczas dekodowania obrazu");
+		_logger.error(err.what());
+	}
 }
 
 void GUI_frame_decode_A::button_save_output_OnButtonClick(wxCommandEvent& event)

@@ -8,7 +8,10 @@ Stegano::Stegano(wxImage& myInputImage, wxImage& myRefImage, std::function<void(
 	if (myInputImage.IsOk()) inputImage = myInputImage.Copy();
 
 	if (myRefImage.IsOk()) referImage = myRefImage.Copy();
-	else if (!referImage.LoadFile("stegano_refer.png")) wxMessageBox(_("Nie uda³o za³adowaæ siê obrazka referencyjnego!"));	// zaladowanie obrazka referencyjnego
+	else referImage.LoadFile("stegano_refer.png");
+
+	if (!referImage.IsOk()) throw std::invalid_argument("Image is not ok");
+
 	// reskalowanie obrazka referencyjnego
 	int width = myInputImage.GetSize().GetWidth();
 	int height = myInputImage.GetSize().GetHeight();
@@ -33,6 +36,8 @@ void Stegano::CodeCurrentPixel(int index, int lumType, unsigned char * finalData
 // kodowanie steganograficzne podanego obrazka
 void Stegano::SteganoCode(wxImage & imageOutput)
 {
+	if (!inputImage.IsOk()) throw std::invalid_argument("Image is not ok");
+
 	// wczytanie i przygotowanie obrazkow
 	imageOutput = referImage.Copy();
 	int size = imageOutput.GetSize().GetWidth() * imageOutput.GetSize().GetHeight() * 3;	// rozmiar danych
@@ -62,6 +67,8 @@ int Stegano::ComputeLumTypeDecode(int index, unsigned const char * data, unsigne
 // dekodowanie steganograficzne podanego obrazka
 void Stegano::SteganoDec(wxImage & imageOutput)
 {
+	if (!inputImage.IsOk()) throw std::invalid_argument("Image is not ok");
+
 	// wczytanie i przygotowanie obrazkow
 	imageOutput = inputImage.Copy();
 	int size = imageOutput.GetSize().GetWidth() * imageOutput.GetSize().GetHeight() * 3;	// rozmiar danych

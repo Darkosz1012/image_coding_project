@@ -48,16 +48,17 @@ void GUI_frame_encode_A::button_load_ref_OnButtonClick(wxCommandEvent& event)
 
 void GUI_frame_encode_A::button_encode_OnButtonClick(wxCommandEvent& event)
 {
-	if (inputImage != nullptr && inputImage->IsOk())	// jezeli wczytany obrazek istnieje
-	{
+	try {
 		// przygotowanie menad¿era kodowania i obrazka do zakodowania
 		Stegano meCoding(*inputImage, *refImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 1); });
 		meCoding.SteganoCode(*outputImage);	// kodowanie
 		Repaint(*outputImage, panel_output_image);	// rysowanie zakodowanego obrazka
 		_logger.info("Poprawnie zakodowano obraz");
 	}
-	else _logger.error("Wystąpił błąd podczas kodowania obrazu");
-
+	catch (std::exception err) {
+		_logger.error("Wystąpił błąd podczas kodowania obrazu");
+		_logger.error(err.what());
+	}
 }
 
 void GUI_frame_encode_A::button_save_output_OnButtonClick(wxCommandEvent& event)

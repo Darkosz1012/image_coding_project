@@ -68,8 +68,7 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 	//std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	//gauge_progress->SetValue(0);
 
-	_logger.info("Kodowanie metodą steganograficzną");
-	if (outputImage1->IsOk() && outputImage2->IsOk())
+	try
 	{
 		Stegano meCoding1(*outputImage1, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 75 + 51); });
 		Stegano meCoding2(*outputImage2, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 76); });
@@ -79,7 +78,12 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 		Repaint(*outputImage2, panel_output_image2);
 		_logger.info("Poprawnie zakodowano obraz metodą steganograficzną");
 	}
-	else  _logger.error("Wystąpił błąd podczas kodowania obrazu metodą steganograficzną");
+	catch (std::exception err){
+		_logger.error("Wystąpił błąd podczas kodowania obrazu metodą steganograficzną");
+		_logger.error(err.what());
+	}
+		
+		
 }
 
 void GUI_frame_encode_AB::button_save_output1_OnButtonClick( wxCommandEvent& event )
