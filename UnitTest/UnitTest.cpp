@@ -21,10 +21,8 @@
 #include <wx/gauge.h>
 
 #include <memory>
-#include "DrawManager.h"
-#include "LoadSaveManager.h"
 #include "Crypto.h"
-#include "TextBoxLogger.h"
+#include "Stegano.h"
 #include "ImageData.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -87,21 +85,40 @@ namespace UnitTest
 
 		}
 	};
+
+	double luminance(int index, unsigned const char * data)
+	{
+		return  (0.299*data[index] + 0.587*data[index + 1] + 0.114*data[index + 2]) / 255;
+	}
 	TEST_CLASS(SteganoTest)
 	{
 	public:
 
 		TEST_METHOD(all)
 		{
-			wxImage tmp(256, 1);
-			unsigned char * data = tmp.GetData();
+			std::shared_ptr<wxImage> inputImage = std::make_shared<wxImage>(wxImage(256,1));
+			unsigned char * data = inputImage->GetData();
 			for (int i = 0; i < 256; i++) {
 				data[i * 3] = i;
 				data[i * 3 + 1] = i;
 				data[i * 3 + 2] = i;
 			}
-			//Crypto crypto();
-			Assert::AreEqual(5, 5);
+			
+			std::shared_ptr<wxImage> refImage = std::make_shared<wxImage>(wxNullImage);
+			wxImage::AddHandler(new wxPNGHandler);
+			refImage->LoadFile("stegano_refer.png");
+			std::shared_ptr<wxImage> outputImage = std::make_shared<wxImage>(wxNullImage);
+			Stegano enCoding(*inputImage, *refImage);
+			enCoding.SteganoCode(*outputImage);	// kodowanie
+			Stegano deCoding(*outputImage, *refImage);
+			std::shared_ptr<wxImage> outputOrg = std::make_shared<wxImage>(wxNullImage);
+			deCoding.SteganoDec(*outputOrg);
+			unsigned char * data1 = outputOrg->GetData();
+			for (int i = 0; i < 256; i++) {
+				if (luminance(i, data) - 0.125 > luminance(i, data1) || luminance(i, data) + 0.125 < luminance(i, data1)) {
+					Assert::Fail(L"Bad luminance");
+				}
+			}
 		}
 	};
 	TEST_CLASS(ImageDataTest)

@@ -9,7 +9,7 @@ protected:
 	wxImage referImage;
 public:
 	// konstruktor
-	Stegano(wxImage& myInputImage, wxImage& myRefImage, std::function<void(int, int)> progressFunction);
+	Stegano(wxImage& myInputImage, wxImage& myRefImage, std::function<void(int, int)> progressFunction = [](int, int) {});
 	// kodowanie
 	void SteganoCode(wxImage & myOutputImage);
 	// dekodowanie
@@ -22,5 +22,5 @@ protected:
 	// funkcja okreslajaca typ jasnosci pod dekodowanie
 	int ComputeLumTypeDecode(int index, unsigned const char * data, unsigned const char * finalData);
 
-	std::function<void(int, int)> _progressFunction;
+	std::function<void(int number, int all)> _progressFunction;
 };
