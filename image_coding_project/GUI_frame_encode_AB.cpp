@@ -6,6 +6,7 @@ GUI_frame_encode_AB::GUI_frame_encode_AB( wxWindow* parent ) : frame_encode_AB( 
 	referenceImage = std::make_shared<wxImage>(wxNullImage);
 	outputImage1 = std::make_shared<wxImage>(wxNullImage);
 	outputImage2 = std::make_shared<wxImage>(wxNullImage);
+	gauge_progress->SetRange(100);
 }
 
 void GUI_frame_encode_AB::frame_encode_AB_OnUpdateUI(wxUpdateUIEvent& event)
@@ -70,8 +71,8 @@ void GUI_frame_encode_AB::button_encode_OnButtonClick( wxCommandEvent& event )
 
 	try
 	{
-		Stegano meCoding1(*outputImage1, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 75 + 51); });
-		Stegano meCoding2(*outputImage2, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 100 + 76); });
+		Stegano meCoding1(*outputImage1, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 25 + 51); });
+		Stegano meCoding2(*outputImage2, *referenceImage, [=](int number, int all) { this->gauge_progress->SetValue(static_cast<double>(number) / all * 25 + 76); });
 		meCoding1.SteganoCode(*outputImage1);
 		meCoding2.SteganoCode(*outputImage2);
 		Repaint(*outputImage1, panel_output_image1);
