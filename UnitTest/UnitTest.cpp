@@ -21,9 +21,6 @@
 #include <wx/gauge.h>
 
 #include <memory>
-#include "Crypto.h"
-#include "Stegano.h"
-#include "ImageData.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 

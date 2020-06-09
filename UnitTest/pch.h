@@ -9,4 +9,7 @@
 
 // add headers that you want to pre-compile here
 
+#include "Crypto.h"
+#include "Stegano.h"
+#include "ImageData.h"
 #endif //PCH_H

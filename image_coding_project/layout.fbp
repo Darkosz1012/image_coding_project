@@ -911,7 +911,7 @@
                                         <property name="gripper">0</property>
                                         <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
-                                        <property name="label">Wczytaj obraz wzorcowy(opcjonalne) </property>
+                                        <property name="label">Wczytaj obraz wzorcowy (opcjonalne) </property>
                                         <property name="margins"></property>
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
@@ -1008,7 +1008,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -1188,7 +1188,7 @@
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
-                                        <property name="maximum_size"></property>
+                                        <property name="maximum_size">300,200</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size">300,200</property>
@@ -1202,7 +1202,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size">-1,-1</property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -1662,7 +1662,7 @@
                                         <property name="gripper">0</property>
                                         <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
-                                        <property name="label">Wczytaj obraz wzorcowy(opcjonalne) </property>
+                                        <property name="label">Wczytaj obraz wzorcowy (opcjonalne) </property>
                                         <property name="margins"></property>
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
@@ -1759,7 +1759,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -1939,7 +1939,7 @@
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
-                                        <property name="maximum_size"></property>
+                                        <property name="maximum_size">300,200</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size">300,200</property>
@@ -1953,7 +1953,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -2205,7 +2205,7 @@
             <property name="size">1177,369</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">Koduj metodą steganograficzną</property>
+            <property name="title">Koduj metodą kryptograficzną</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -2369,7 +2369,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -2563,7 +2563,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -2956,7 +2956,7 @@
             <property name="size">1177,369</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">Dekoduj metodą steganograficzną</property>
+            <property name="title">Dekoduj metodą kryptograficzną</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -3261,7 +3261,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -3441,7 +3441,7 @@
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
-                                        <property name="maximum_size"></property>
+                                        <property name="maximum_size">300,200</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size">300,200</property>
@@ -3455,7 +3455,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -3707,7 +3707,7 @@
             <property name="size">1277,369</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">Koduj metodą steganograficzną</property>
+            <property name="title">Koduj obiema metodami</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -3915,7 +3915,7 @@
                                         <property name="gripper">0</property>
                                         <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
-                                        <property name="label">Wczytaj obraz wzorcowy(opcjonalne) </property>
+                                        <property name="label">Wczytaj obraz wzorcowy (opcjonalne) </property>
                                         <property name="margins"></property>
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
@@ -4012,7 +4012,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -4192,7 +4192,7 @@
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
-                                        <property name="maximum_size"></property>
+                                        <property name="maximum_size">300,200</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size">300,200</property>
@@ -4206,7 +4206,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>
@@ -4599,7 +4599,7 @@
             <property name="size">1272,369</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
-            <property name="title">Dekoduj metodą steganograficzną</property>
+            <property name="title">Dekoduj obiema metodami</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -4948,7 +4948,7 @@
                                         <property name="gripper">0</property>
                                         <property name="hidden">0</property>
                                         <property name="id">wxID_ANY</property>
-                                        <property name="label">Wczytaj obraz wzorcowy(opcjonalne) </property>
+                                        <property name="label">Wczytaj obraz wzorcowy (opcjonalne) </property>
                                         <property name="margins"></property>
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
@@ -5045,7 +5045,7 @@
                         </object>
                         <object class="sizeritem" expanded="1">
                             <property name="border">5</property>
-                            <property name="flag">wxALL|wxEXPAND</property>
+                            <property name="flag">wxALL</property>
                             <property name="proportion">0</property>
                             <object class="wxBoxSizer" expanded="1">
                                 <property name="minimum_size"></property>
@@ -5225,7 +5225,7 @@
                                         <property name="markup">0</property>
                                         <property name="max_size"></property>
                                         <property name="maximize_button">0</property>
-                                        <property name="maximum_size"></property>
+                                        <property name="maximum_size">300,200</property>
                                         <property name="min_size"></property>
                                         <property name="minimize_button">0</property>
                                         <property name="minimum_size">300,200</property>
@@ -5239,7 +5239,7 @@
                                         <property name="pos"></property>
                                         <property name="resize">Resizable</property>
                                         <property name="show">1</property>
-                                        <property name="size"></property>
+                                        <property name="size">300,200</property>
                                         <property name="style"></property>
                                         <property name="subclass">; ; forward_declare</property>
                                         <property name="toolbar_pane">0</property>

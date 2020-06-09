@@ -24,4 +24,3 @@ public:
 		return _height;
 	}
 };
-

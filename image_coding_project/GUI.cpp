@@ -107,7 +107,7 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy (opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -129,15 +129,16 @@ frame_encode_A::frame_encode_A( wxWindow* parent, wxWindowID id, const wxString&
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
+	text_info->SetMaxSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer22->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer22->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
@@ -216,7 +217,7 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy (opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -238,15 +239,16 @@ frame_decode_A::frame_decode_A( wxWindow* parent, wxWindowID id, const wxString&
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
+	text_info->SetMaxSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer23->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer23->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
@@ -332,7 +334,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
@@ -340,7 +342,7 @@ frame_encode_B::frame_encode_B( wxWindow* parent, wxWindowID id, const wxString&
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer22->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer22->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
@@ -456,15 +458,16 @@ frame_decode_B::frame_decode_B( wxWindow* parent, wxWindowID id, const wxString&
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
+	text_info->SetMaxSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer23->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer23->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
@@ -543,7 +546,7 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy (opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer31->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -565,15 +568,16 @@ frame_encode_AB::frame_encode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
+	text_info->SetMaxSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer22->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer22->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );
@@ -684,7 +688,7 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer311;
 	bSizer311 = new wxBoxSizer( wxVERTICAL );
 
-	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy(opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
+	button_load_ref = new wxButton( this, wxID_ANY, _("Wczytaj obraz wzorcowy (opcjonalne) "), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer311->Add( button_load_ref, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	panel_input_ref = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_SIMPLE|wxTAB_TRAVERSAL );
@@ -706,15 +710,16 @@ frame_decode_AB::frame_decode_AB( wxWindow* parent, wxWindowID id, const wxStrin
 	gauge_progress->SetValue( 0 );
 	bSizer6->Add( gauge_progress, 0, wxALIGN_CENTER|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 
-	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxBORDER_SIMPLE|wxVSCROLL );
+	text_info = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 300,200 ), 0|wxBORDER_SIMPLE|wxVSCROLL );
 	text_info->Wrap( -1 );
 	text_info->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNTEXT ) );
 	text_info->SetMinSize( wxSize( 300,200 ) );
+	text_info->SetMaxSize( wxSize( 300,200 ) );
 
 	bSizer6->Add( text_info, 1, wxALL|wxEXPAND, 5 );
 
 
-	bSizer23->Add( bSizer6, 0, wxALL|wxEXPAND, 5 );
+	bSizer23->Add( bSizer6, 0, wxALL, 5 );
 
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxVERTICAL );

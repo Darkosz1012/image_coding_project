@@ -165,7 +165,7 @@ class frame_encode_B : public wxFrame
 
 	public:
 
-		frame_encode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Koduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		frame_encode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Koduj metodą kryptograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_encode_B();
 
@@ -201,7 +201,7 @@ class frame_decode_B : public wxFrame
 
 	public:
 
-		frame_decode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Dekoduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		frame_decode_B( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Dekoduj metodą kryptograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1177,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_decode_B();
 
@@ -240,7 +240,7 @@ class frame_encode_AB : public wxFrame
 
 	public:
 
-		frame_encode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Koduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1277,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		frame_encode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Koduj obiema metodami"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1277,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_encode_AB();
 
@@ -279,7 +279,7 @@ class frame_decode_AB : public wxFrame
 
 	public:
 
-		frame_decode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Dekoduj metodą steganograficzną"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1272,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		frame_decode_AB( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Dekoduj obiema metodami"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1272,369 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~frame_decode_AB();
 
